@@ -21,6 +21,10 @@ def read(path: str) -> List[Dict]:
 
 
 def get_unique_job_types(path: str) -> List[str]:
+    job_types = set()
+    for job in read(path):
+        job_types.add(job["job_type"])
+
     jobs = read(path)
     industries = []
     for job in jobs:
@@ -28,6 +32,7 @@ def get_unique_job_types(path: str) -> List[str]:
         if industry not in industries:
             industries.append(industry)
     return list(filter(len, industries))
+
     """Checks all different job types and returns a list of them
 
     Must call `read`
