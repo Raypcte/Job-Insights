@@ -10,7 +10,6 @@ def get_unique_industries(path: str) -> List[str]:
         if industry not in industries:
             industries.append(industry)
     return list(filter(len, industries))
-# test
 
     """Checks all different industries and returns a list of them
 
