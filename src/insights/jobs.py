@@ -25,13 +25,7 @@ def get_unique_job_types(path: str) -> List[str]:
     for job in read(path):
         job_types.add(job["job_type"])
 
-    jobs = read(path)
-    industries = []
-    for job in jobs:
-        industry = job["industry"]
-        if industry not in industries:
-            industries.append(industry)
-    return list(filter(len, industries))
+    return job_types
 
     """Checks all different job types and returns a list of them
 
@@ -46,10 +40,12 @@ def get_unique_job_types(path: str) -> List[str]:
     -------
     list
         List of unique job types
+
     """
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
+
     """Filters a list of jobs by job_type
 
     Parameters
