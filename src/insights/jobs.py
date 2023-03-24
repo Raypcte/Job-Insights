@@ -21,6 +21,11 @@ def read(path: str) -> List[Dict]:
 
 
 def get_unique_job_types(path: str) -> List[str]:
+    job_types = set()
+    for job in read(path):
+        job_types.add(job["job_type"])
+
+    return job_types
     """Checks all different job types and returns a list of them
 
     Must call `read`
