@@ -29,6 +29,14 @@ def get_max_salary(path: str) -> int:
 
 
 def get_min_salary(path: str) -> int:
+    jobs = read(path)
+    salaries = [
+        int(salary["min_salary"])
+        for salary in jobs
+        if salary["min_salary"].isnumeric()
+    ]
+    return min(salaries)
+
     """Get the minimum salary of all jobs
 
     Must call `read`
