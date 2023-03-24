@@ -4,18 +4,15 @@ from typing import List, Dict
 
 @lru_cache
 def read(path: str) -> List[Dict]:
-    """Reads a file from a given path and returns its contents
+    from functools import lru_cache
+from csv import DictReader
 
-    Parameters
-    ----------
-    path : str
-        Full path to file
 
-    Returns
-    -------
-    list
-        List of rows as dicts
-    """
+@lru_cache
+def read(path):
+    with open(path, mode='r') as csvfile:
+        reader = DictReader(csvfile)
+        return [row for row in reader]
     raise NotImplementedError
 
 
