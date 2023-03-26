@@ -6,10 +6,9 @@ import csv
 @lru_cache
 def read(path: str) -> List[Dict]:
     with open(path, encoding="utf8") as file:
-        file_contents = list(
-            csv.DictReader(file, delimiter=",", quotechar='"')
-        )
-        return file_contents
+        content = csv.DictReader(file, delimiter=",", quotechar='"')
+        list_content = list(content)
+        return list_content
 
     """Reads a file from a given path and returns its contents
     Parameters
@@ -24,12 +23,15 @@ def read(path: str) -> List[Dict]:
     raise NotImplementedError
 
 
+# print(read("tests/mocks/jobs.csv"))
+
+
 def get_unique_job_types(path: str) -> List[str]:
     job_types = set()
     for job in read(path):
         job_types.add(job["job_type"])
 
-    return job_types
+    return list(job_types)
 
     """Checks all different job types and returns a list of them
     Must call `read`
@@ -45,7 +47,16 @@ def get_unique_job_types(path: str) -> List[str]:
     raise NotImplementedError
 
 
+# print(get_unique_job_types("tests/mocks/jobs_with_types.csv"))
+
+
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
+    filter_list = list()
+    for job in jobs:
+        if job["job_type"] == job_type:
+            filter_list.append(job)
+    return filter_list
+
     """Filters a list of jobs by job_type
     Parameters
     ----------
@@ -59,3 +70,6 @@ def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
         List of jobs with provided job_type
     """
     raise NotImplementedError
+
+
+# print(filter_by_job_type(read("tests/mocks/jobs_with_types.csv"), "trainee"))
