@@ -1,5 +1,5 @@
 from typing import List, Dict
-from jobs import read
+from src.insights.jobs import read
 
 
 def get_unique_industries(path: str) -> List[str]:
@@ -28,7 +28,13 @@ def get_unique_industries(path: str) -> List[str]:
     raise NotImplementedError
 
 
+# print(get_unique_industries("tests/mocks/jobs_with_industries.csv"))
+
+
 def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
+    filter_industry = [job for job in jobs if job["industry"] == industry]
+    return filter_industry
+
     """Filters a list of jobs by industry
 
     Parameters
@@ -44,3 +50,10 @@ def filter_by_industry(jobs: List[Dict], industry: str) -> List[Dict]:
         List of jobs with provided industry
     """
     raise NotImplementedError
+
+
+# print(
+#     filter_by_industry(
+#         read("tests/mocks/jobs_with_industries.csv"), "solar energy"
+#     )
+# )
