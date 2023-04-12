@@ -1,10 +1,14 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+#  README 
+
+Projeto em Python utilizando o framework Flask. 🚀
+
+# Habilidades
+
+- Utilizar o terminal interativo do Python.
+- Utilizar estruturas condicionais e de repetição.
+- Utilizar funções built-in do Python.
+- Utilizar tratamento de exceções.
+- Realizar a manipulação de arquivos.
+- Escrever funções.
+- Escrever testes com Pytest.
+- Escrever seus próprios módulos e importá-los em outros códigos.
